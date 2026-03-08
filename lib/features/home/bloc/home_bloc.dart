@@ -20,14 +20,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     HomeProductWishlistButtonClickedEvent event,
     Emitter<HomeState> emit,
   ) {
-    print('Wishlist clicked.');
+    print('Wishlist Product clicked.');
   }
 
   FutureOr<void> homeProductCartButtonClickedEvent(
     HomeProductCartButtonClickedEvent event,
     Emitter<HomeState> emit,
   ) {
-    print('Cart clicked.');
+    print('Cart Product clicked.');
   }
 
   FutureOr<void> homeWishlistButtonNavigateEvent(
@@ -35,6 +35,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     Emitter<HomeState> emit,
   ) {
     print('Wishlist Page Route Button Clicked.');
+    emit(HomeNavigateToWishlistPageActionState());
   }
 
   FutureOr<void> homeCartButtonNavigateEvent(
@@ -42,5 +43,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     Emitter<HomeState> emit,
   ) {
     print('Cart Page Route Button Clicked.');
+    emit(HomeNavigateToCartPageActionState());
   }
 }
