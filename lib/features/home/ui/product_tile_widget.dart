@@ -30,7 +30,7 @@ class ProductTileWidget extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           Text(
-            'Rs.' + productDataModel.price.toString(),
+            '\$' + productDataModel.price.toString(),
             style: TextStyle(fontSize: 18, fontWeight: .bold),
           ),
           const SizedBox(height: 4),
@@ -38,7 +38,28 @@ class ProductTileWidget extends StatelessWidget {
             productDataModel.name,
             style: TextStyle(fontSize: 18, fontWeight: .bold),
           ),
-          Text(productDataModel.description),
+          Row(
+            mainAxisAlignment: .spaceBetween,
+            children: [
+              Text(productDataModel.description),
+              Row(
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      // homeBloc.add(HomeWishlistButtonNavigateEvent());
+                    },
+                    icon: Icon(Icons.favorite_border),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      // homeBloc.add(HomeCartButtonNavigateEvent());
+                    },
+                    icon: Icon(Icons.shopping_bag_outlined),
+                  ),
+                ],
+              ),
+            ],
+          ),
           // Text(productDataModel.price.toString()),
         ],
       ),
