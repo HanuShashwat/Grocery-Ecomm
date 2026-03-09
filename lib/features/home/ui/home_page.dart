@@ -49,19 +49,28 @@ class _HomePageState extends State<HomePage> {
             return Scaffold(
               appBar: AppBar(
                 backgroundColor: Colors.teal,
-                title: Text("Hanu's Grocery App"),
+                title: Text(
+                  "Hanu's Grocery App",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight(500),
+                  ),
+                ),
                 actions: [
                   IconButton(
                     onPressed: () {
                       homeBloc.add(HomeWishlistButtonNavigateEvent());
                     },
-                    icon: Icon(Icons.favorite_border),
+                    icon: Icon(Icons.favorite_border, color: Colors.white),
                   ),
                   IconButton(
                     onPressed: () {
                       homeBloc.add(HomeCartButtonNavigateEvent());
                     },
-                    icon: Icon(Icons.shopping_bag_outlined),
+                    icon: Icon(
+                      Icons.shopping_bag_outlined,
+                      color: Colors.white,
+                    ),
                   ),
                 ],
               ),
