@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:grocery_ecomm/features/home/bloc/home_bloc.dart';
 import 'package:grocery_ecomm/features/home/ui/cart_page.dart';
+import 'package:grocery_ecomm/features/home/ui/product_tile_widget.dart';
 import 'package:grocery_ecomm/features/home/ui/wishlist_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -44,6 +45,7 @@ class _HomePageState extends State<HomePage> {
           case HomeLoadingState:
             return Scaffold(body: Center(child: CircularProgressIndicator()));
           case HomeLoadedSuccessState:
+            final successState = state as HomeLoadedSuccessState;
             return Scaffold(
               appBar: AppBar(
                 backgroundColor: Colors.teal,
@@ -62,6 +64,14 @@ class _HomePageState extends State<HomePage> {
                     icon: Icon(Icons.shopping_bag_outlined),
                   ),
                 ],
+              ),
+              body: ListView.builder(
+                itemCount: successState.products.length,
+                itemBuilder: (context, index) {
+                  return ProductTileWidget(
+                    productDataModel: successState.products[index],
+                  );
+                },
               ),
             );
           case HomeErrorState:
