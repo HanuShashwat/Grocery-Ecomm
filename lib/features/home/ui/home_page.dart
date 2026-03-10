@@ -79,6 +79,7 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (context, index) {
                   return ProductTileWidget(
                     productDataModel: successState.products[index],
+                    homeBloc: homeBloc,
                   );
                 },
               ),
