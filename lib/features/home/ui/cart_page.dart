@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:grocery_ecomm/features/cart/ui/cart_bloc.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({super.key});
@@ -10,6 +12,18 @@ class CartPage extends StatefulWidget {
 class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Text("Cart Page")));
+    final CartBloc cartBloc = CartBloc();
+    return Scaffold(
+      appBar: AppBar(title: Text('Cart Items')),
+      body: BlocConsumer<CartBloc, CartState>(
+        bloc: cartBloc,
+        listener: (context, state) {
+          // TODO: implement listener
+        },
+        builder: (context, state) {
+          return Container();
+        },
+      ),
+    );
   }
 }
